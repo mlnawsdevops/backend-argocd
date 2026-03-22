@@ -3,8 +3,8 @@ kind: Application
 metadata:
   name: backend
   namespace: argocd
-  annotations: 
-    argocd.argoproj.io/sync-wave: "0"
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
@@ -14,7 +14,7 @@ spec:
     helm:
       releaseName: backend
       valueFiles:
-      - values.yaml
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: expense
@@ -24,6 +24,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      - ApplyOutOfSyncOnly=true
       - ServerSideApply=true
       - PruneLast=true
