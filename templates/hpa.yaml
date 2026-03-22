@@ -10,4 +10,4 @@ spec:
     name: backend
   minReplicas: 1
   maxReplicas: 2
-  targetCPUUtilizationPercentage: {{ .Values.hpa.cpuUtilization }}
+  averageUtilization: {{ .Values.hpa.cpuUtilization }}
